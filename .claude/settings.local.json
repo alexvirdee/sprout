@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//private/tmp/sprout-design/**)",
+      "Bash(gunzip -k -c design.bin)",
+      "Bash(mkdir -p extracted)",
+      "Bash(tar -xf design.tar -C extracted)",
+      "Bash(npm install *)",
+      "Bash(npx next *)",
+      "Bash(curl -sSf -o /dev/null -w \"HTTP %{http_code} \\(%{size_download} bytes\\)\\\\n\" http://localhost:3211/)",
+      "Bash(curl -sS http://localhost:3211/)",
+      "Bash(kill %1)",
+      "Bash(wait)",
+      "Read(//private/tmp/**)"
+    ]
+  }
+}

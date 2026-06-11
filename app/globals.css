@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Sprout Design System — token layer
+   Mirrors the Claude Design system tokens for runtime use.
+   ============================================================ */
+
+:root {
+  /* ---- Brand seeds ---- */
+  --sprout-green: #4caf50;
+  --sage: #a8c686;
+  --harvest-gold: #f4b942;
+  --terracotta: #c86b3c;
+  --warm-cream: #faf8f2;
+  --earth-brown: #5a4634;
+  --stone: #e7e2d8;
+
+  /* ---- Green scale ---- */
+  --green-50: #edf7ed;
+  --green-100: #d4ecd5;
+  --green-200: #abdbad;
+  --green-300: #82c985;
+  --green-400: #66bc6a;
+  --green-500: #4caf50;
+  --green-600: #3d9a41;
+  --green-700: #2f7d33;
+  --green-800: #245f27;
+  --green-900: #1b481e;
+
+  /* ---- Sage scale ---- */
+  --sage-50: #f3f7ec;
+  --sage-100: #e6efd7;
+  --sage-200: #cfe0b6;
+  --sage-300: #bad49b;
+  --sage-400: #a8c686;
+  --sage-500: #94b86e;
+  --sage-600: #7a9e55;
+  --sage-700: #5f7c43;
+  --sage-800: #475d33;
+  --sage-900: #354627;
+
+  /* ---- Gold scale ---- */
+  --gold-50: #fef8e9;
+  --gold-100: #fcedc4;
+  --gold-200: #f9dd93;
+  --gold-300: #f6cb63;
+  --gold-400: #f4b942;
+  --gold-500: #eba51f;
+  --gold-600: #ce8612;
+  --gold-700: #a2670f;
+  --gold-800: #7c4f12;
+  --gold-900: #654113;
+
+  /* ---- Terracotta scale ---- */
+  --terra-50: #faeee7;
+  --terra-100: #f2d8c7;
+  --terra-200: #e5b499;
+  --terra-300: #d8906c;
+  --terra-400: #c86b3c;
+  --terra-500: #b25a2e;
+  --terra-600: #934826;
+  --terra-700: #74381e;
+  --terra-800: #582b17;
+  --terra-900: #422013;
+
+  /* ---- Warm neutrals ---- */
+  --neutral-0: #ffffff;
+  --neutral-50: #faf8f2;
+  --neutral-100: #f3efe6;
+  --neutral-150: #ece6d9;
+  --neutral-200: #e7e2d8;
+  --neutral-300: #d4ccbc;
+  --neutral-400: #b3a892;
+  --neutral-500: #8c7f6a;
+  --neutral-600: #6e6049;
+  --neutral-700: #5a4634;
+  --neutral-800: #433527;
+  --neutral-900: #2a2017;
+
+  /* ---- Semantic surfaces ---- */
+  --surface-page: var(--warm-cream);
+  --surface-card: var(--neutral-0);
+  --surface-muted: var(--neutral-100);
+  --surface-inverse: var(--neutral-700);
+
+  /* ---- Text ---- */
+  --text-strong: #3a2d20;
+  --text-body: var(--earth-brown);
+  --text-muted: var(--neutral-500);
+  --text-subtle: var(--neutral-400);
+  --text-on-brand: #ffffff;
+  --text-on-gold: var(--earth-brown);
+
+  /* ---- Borders ---- */
+  --border-soft: var(--neutral-200);
+  --border-default: var(--neutral-300);
+  --border-strong: var(--neutral-400);
+  --border-brand: var(--green-300);
+  --ring-focus: color-mix(in srgb, var(--sprout-green) 45%, transparent);
+
+  /* ---- shadcn HSL aliases ---- */
+  --background: 45 47% 96%;          /* warm cream */
+  --foreground: 30 27% 17%;          /* earth-strong */
+  --border: 40 22% 88%;              /* stone */
+  --input: 40 22% 88%;
+  --ring: 122 39% 49%;               /* sprout green */
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- Organic shape ---- */
+  --radius-blob: 62% 38% 42% 58% / 54% 44% 56% 46%;
+
+  /* ---- Section rhythm ---- */
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-y: clamp(4rem, 9vw, 8rem);
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    border-color: var(--border-soft);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-body);
+    background: var(--surface-page);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--text-strong);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--green-200);
+    color: var(--text-strong);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--ring-focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.005em;
+    line-height: 1.2;
+  }
+
+  .blob {
+    border-radius: var(--radius-blob);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Reduced motion — kill non-essential animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
